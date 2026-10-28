@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "backend",
+      "runtimeExecutable": "C:\\Users\\SEEDS\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\java.exe",
+      "runtimeArgs": ["-jar", "backend/build/libs/fit-api-0.0.1-SNAPSHOT.jar"],
+      "port": 8080
+    },
+    {
+      "name": "frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "frontend"],
+      "port": 5173
+    }
+  ]
+}

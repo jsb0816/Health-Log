@@ -1,0 +1,10 @@
+html, body, #app {
+  height: 100%;
+  margin: 0;
+}
+
+/* 모바일 PWA: 안전 영역(노치) 대응 */
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}

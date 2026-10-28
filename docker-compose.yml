@@ -1,0 +1,27 @@
+services:
+  mariadb:
+    image: mariadb:11.8
+    container_name: fit-mariadb
+    restart: unless-stopped
+    ports:
+      - "3307:3306"   # 호스트에 MariaDB 서비스(3306)가 이미 있어 3307 사용
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpw
+      MARIADB_DATABASE: fit
+      MARIADB_USER: fit
+      MARIADB_PASSWORD: fitpw
+      TZ: Asia/Seoul
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-time-zone=+09:00
+    volumes:
+      - fit-mariadb-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  fit-mariadb-data:
